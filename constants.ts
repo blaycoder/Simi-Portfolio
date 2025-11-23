@@ -7,7 +7,7 @@ import {
 
 export const PERSONAL_INFO = {
   name: "Simileoluwa Ajisafe",
-  role: "Web Developer & Data MIS Officer",
+  role: "Data and MIS Specialist",
   email: "ajisafe.simileoluwa@gmail.com ",
   phone: "0814-575-8025",
   location: "Lagos, Nigeria",
@@ -18,9 +18,6 @@ export const SKILLS: SkillCategory[] = [
   {
     category: "Technical & Development",
     skills: [
-      "React.js",
-      "HTML5 & CSS3",
-      "JavaScript (ES6+)",
       "Microsoft Office Suite",
       "Data Management",
       "MIS Administration",
