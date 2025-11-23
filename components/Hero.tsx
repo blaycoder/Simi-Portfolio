@@ -1,7 +1,8 @@
-import React, { useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { PERSONAL_INFO } from '../constants';
-import { ArrowDown, FileText } from 'lucide-react';
+import React, { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { PERSONAL_INFO } from "../constants";
+import { ArrowDown, FileText } from "lucide-react";
+import simiImage from "../assets/images/simi.jpeg";
 
 const Hero: React.FC = () => {
   const comp = useRef<HTMLDivElement>(null);
@@ -14,35 +15,50 @@ const Hero: React.FC = () => {
         y: 30,
         opacity: 0,
         duration: 1,
-        ease: "power3.out"
+        ease: "power3.out",
       })
-      .from(".hero-title", {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out"
-      }, "-=0.5")
-      .from(".hero-desc", {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-      }, "-=0.6")
-      .from(".hero-btn", {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-      }, "-=0.5")
-      .from(".hero-image", {
-        x: 50,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out"
-      }, "-=1.0");
-
+        .from(
+          ".hero-title",
+          {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.1,
+            ease: "power3.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          ".hero-desc",
+          {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "-=0.6"
+        )
+        .from(
+          ".hero-btn",
+          {
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+          },
+          "-=0.5"
+        )
+        .from(
+          ".hero-image",
+          {
+            x: 50,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+          "-=1.0"
+        );
     }, comp);
 
     return () => ctx.revert();
@@ -110,7 +126,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
 
               <img
-                src="./assets/images/simi.jpeg"
+                src={simiImage}
                 alt="Simileoluwa Ajisafe"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
               />
@@ -124,8 +140,6 @@ const Hero: React.FC = () => {
                 </div>
               </div>
             </div>
-
-           
           </div>
         </div>
       </div>
