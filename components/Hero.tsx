@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
 
               <img
-                src="./images/simi.jpeg"
+                src="./assets/images/simi.jpeg"
                 alt="Simileoluwa Ajisafe"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
               />
