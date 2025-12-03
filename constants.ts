@@ -8,7 +8,7 @@ import {
 export const PERSONAL_INFO = {
   name: "Simileoluwa Ajisafe",
   role: "Data and MIS Specialist",
-  email: "ajisafe.simileoluwa@gmail.com ",
+  email: "simileoluwa.ajisafe@gmail.com",
   phone: "0814-575-8025",
   location: "Lagos, Nigeria",
   bio: "A highly organized and hardworking professional seeking to leverage acquired academic knowledge and technical skills. With a background in Political Science and a certificate in Full Stack Web Development, I bridge the gap between data management, administrative efficiency, and modern web solutions. I focus on customer satisfaction, data accuracy, and creating user-friendly digital experiences.",
@@ -39,24 +39,24 @@ export const SKILLS: SkillCategory[] = [
 export const EXPERIENCE: ExperienceItem[] = [
   {
     id: 1,
-    role: "Personal Assistant to Head of Primary",
-    company: "Charterhouse Lagos",
-    period: "Sept 2024 - Present",
-    description: [
-      "Manage calendar, schedule meetings, and organize appointments for optimal time management.",
-      "Act as liaison between the Head of Primary, parents, teachers, and school departments.",
-      "Handle sensitive information with high confidentiality and discretion.",
-    ],
-  },
-  {
-    id: 2,
-    role: "Data and MIS Officer",
+    role: "Data and MIS Specialist",
     company: "Charterhouse Lagos",
     period: "April 2024 - Present",
     description: [
       "Develop and maintain the school's Management Information System (MIS).",
       "Collect and update student records, ensuring data accuracy and privacy compliance.",
       "Train staff on data entry and MIS usage; generate attendance and welfare reports.",
+    ],
+  },
+  {
+    id: 2,
+    role: "Personal Assistant to Head of Primary",
+    company: "Charterhouse Lagos",
+    period: "Sept 2024 - Sept 2025",
+    description: [
+      "Manage calendar, schedule meetings, and organize appointments for optimal time management.",
+      "Act as liaison between the Head of Primary, parents, teachers, and school departments.",
+      "Handle sensitive information with high confidentiality and discretion.",
     ],
   },
   {
