@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->Password = $parsed['pass'] ?? '';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = (int) ($parsed['port'] ?? 587);
-            $from_email = getenv('SMTP_FROM') ?: getenv('CLOUDMAILIN_FROM_EMAIL') ?: 'noreply@yourdomain.com';
+            $from_email = $email;
         }
         // Otherwise, try to use custom SMTP settings from environment variables
         elseif (!empty(getenv('SMTP_HOST'))) {
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->Password = getenv('SMTP_PASS');
             $mail->SMTPSecure = getenv('SMTP_SECURE') ?: PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = (int) getenv('SMTP_PORT') ?: 587;
-            $from_email = getenv('SMTP_FROM') ?: 'noreply@yourdomain.com';
+            $from_email = $email;
         }
         // Fallback: try mail() function (won't work on Heroku, but useful for local testing)
         else {
