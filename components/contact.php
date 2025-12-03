@@ -52,19 +52,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         // Server settings
-        // Check if SendGrid API key is available (from Heroku addon)
-        $sendgrid_api_key = getenv('SENDGRID_API_KEY');
+        // Check if CloudMailin SMTP URL is available (from Heroku addon)
+        $cloudmailin_smtp_url = getenv('CLOUDMAILIN_SMTP_URL');
 
-        // If SendGrid addon is installed, use SendGrid SMTP
-        if (!empty($sendgrid_api_key)) {
+        // If CloudMailin addon is installed, use CloudMailin SMTP
+        if (!empty($cloudmailin_smtp_url)) {
+            // Parse the SMTP URL: smtp://username:password@host:port
+            $parsed = parse_url($cloudmailin_smtp_url);
             $mail->isSMTP();
-            $mail->Host = 'smtp.sendgrid.net';
+            $mail->Host = $parsed['host'] ?? 'smtp.cloudmailin.net';
             $mail->SMTPAuth = true;
-            $mail->Username = 'apikey'; // SendGrid SMTP always uses 'apikey' as username
-            $mail->Password = $sendgrid_api_key; // Your SendGrid API key
+            $mail->Username = $parsed['user'] ?? '';
+            $mail->Password = $parsed['pass'] ?? '';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-            $from_email = getenv('SENDGRID_FROM_EMAIL') ?: 'noreply@yourdomain.com';
+            $mail->Port = (int) ($parsed['port'] ?? 587);
+            $from_email = getenv('SMTP_FROM') ?: getenv('CLOUDMAILIN_FROM_EMAIL') ?: 'noreply@yourdomain.com';
         }
         // Otherwise, try to use custom SMTP settings from environment variables
         elseif (!empty(getenv('SMTP_HOST'))) {
