@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Email Configuration
-    $to_email = "onatola4real@gmail.com";
+    $to_email = "simileoluwa.ajisafe@gmail.com";
     $subject = "Portfolio Contact: Message from $name";
 
     // Create PHPMailer instance

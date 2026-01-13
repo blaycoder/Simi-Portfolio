@@ -96,13 +96,20 @@ export const EXPERIENCE: ExperienceItem[] = [
 export const EDUCATION: EducationItem[] = [
   {
     id: 1,
+    degree: "MBA in Business Administration",
+    institution: "Miva University",
+    year: "May 2025 - Aug 2026",
+    details: "Current CGPA: 5.00",
+  },
+  {
+    id: 2,
     degree: "Certificate in Full Stack Web Development",
     institution: "Gomycode",
     year: "Aug - Dec 2023",
     details: "Completed intensive training in modern web technologies.",
   },
   {
-    id: 2,
+    id: 3,
     degree: "BSc. Political Science",
     institution: "University of Ilorin",
     year: "2021",
