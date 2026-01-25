@@ -14,10 +14,11 @@
     "heroku-postbuild": "npm run build && cp components/contact.php dist/contact.php && cp .htaccess dist/.htaccess"
   },
   "dependencies": {
-    "react-dom": "^19.2.0",
-    "react": "^19.2.0",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.554.0",
-    "gsap": "^3.13.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sweetalert2": "^11.26.17"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

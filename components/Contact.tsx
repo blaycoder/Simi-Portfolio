@@ -9,6 +9,8 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { PERSONAL_INFO } from "../constants";
+import Swal from 'sweetalert2'
+
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -22,45 +24,38 @@ const Contact: React.FC = () => {
     message: string;
   } | null>(null);
 
+const [result, setResult] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setStatus(null);
+     const formData = new FormData(e.target);
+    formData.append("access_key", "8c133d2d-4356-4f19-95a5-b32a6f723a77");
 
-    try {
-      const response = await fetch("./contact.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+    setResult(data.success ? "Success!" : "Error");
+    setIsSubmitting(false);
+    if(data.success) {
+      setFormState({
+        name: "",
+        email: "",
+        message: "",
       });
-
-      // Attempt to parse JSON response
-      let result;
-      try {
-        result = await response.json();
-      } catch (err) {
-        throw new Error("Invalid server response");
-      }
-
-      if (response.ok && result.success) {
-        setStatus({ type: "success", message: result.message });
-        setFormState({ name: "", email: "", message: "" });
-      } else {
-        setStatus({
-          type: "error",
-          message: result.message || "Failed to send message.",
-        });
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      setStatus({
-        type: "error",
-        message: "Something went wrong. Please try again later.",
+      Swal.fire({
+        title: "Success!",
+        text: "Message sent successfully",
+        icon: "success",
       });
-    } finally {
-      setIsSubmitting(false);
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to send message",
+        icon: "error",
+      });
     }
   };
 
