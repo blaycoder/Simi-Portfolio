@@ -49,7 +49,7 @@ const About: React.FC = () => {
             </div>
             <div className="flex flex-col text-center md:text-left">
               <span className="text-muted uppercase tracking-wider text-xs font-bold mb-2">Education</span>
-              <span className="font-medium text-secondary">BSc. Pol. Sci.</span>
+              <span className="font-medium text-secondary">Ongoing MBA</span>
             </div>
             <div className="flex flex-col text-center md:text-left">
               <span className="text-muted uppercase tracking-wider text-xs font-bold mb-2">Availability</span>
