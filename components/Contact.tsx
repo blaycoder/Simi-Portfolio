@@ -158,6 +158,7 @@ const [result, setResult] = useState("");
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
                   value={formState.name}
                   onChange={(e) =>
@@ -177,6 +178,7 @@ const [result, setResult] = useState("");
                 </label>
                 <input
                   type="email"
+                  name="email"
                   id="email"
                   required
                   value={formState.email}
@@ -198,6 +200,7 @@ const [result, setResult] = useState("");
                 <textarea
                   id="message"
                   required
+                  name="message"
                   rows={4}
                   value={formState.message}
                   onChange={(e) =>
